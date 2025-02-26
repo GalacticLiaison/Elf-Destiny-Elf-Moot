@@ -2,6 +2,7 @@
 	
 	is_shown = {
 		# is_any_elf_type = yes
+		
 	}
 	
 	can_start_showing_failures_only = {
@@ -10,6 +11,9 @@
 
 	is_valid = {
 		# If no one shows up
+		NOT = { 
+			has_global_variable = elf_moot_hosted
+		}
 		trigger_if = {
 			limit = {
 				is_current_phase_active = yes
@@ -2085,6 +2089,13 @@
 	}
 
 	on_start = { # Activity scope
+		
+		set_global_variable = { 
+			name = elf_moot_hosted
+			years = 25 
+			value = yes
+		}
+
 		if = {
 			limit = { exists = scope:activity }
 			### CHAMPION ###
