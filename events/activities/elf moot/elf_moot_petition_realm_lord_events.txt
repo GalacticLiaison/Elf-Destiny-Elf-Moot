@@ -1,0 +1,24 @@
+﻿namespace = elf_moot_petition_realm_lord
+
+elf_moot_petition_realm_lord.001 = {
+	type = activity_event
+	title = elf_moot_petition_realm_lord.001.title
+	desc = elf_moot_petition_realm_lord.001.desc
+
+	# theme = 
+	content_source = elf_destiny
+
+	left_portrait = {
+		trigger = { exists = scope:host }
+		character = scope:host
+		animation = toast_goblet
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = elf_moot_petition_realm_lord.001.ok
+	}
+}

@@ -1,0 +1,27 @@
+﻿l_english:
+  activity_elf_moot:0 "Elf Moot"
+  activity_elf_moot_desc:0 "Summon the great Elf Lords of the world to discuss Elven affairs and set Elven Policy"
+  activity_elf_moot_host_desc:0 "$BULLET_WITH_TAB$May gain [gold_i][gold|E], [prestige_i][prestige|E], [piety_i][piety|E]\n$BULLET_WITH_TAB$May gain new Elven [prowess_i][courtiers|E]\n$BULLET_WITH_TAB$May make new [friends|E] or [rivals|E]"
+
+  activity_elf_moot_destination_selection:0 "$BULLET_WITH_TAB$You should choose an impressive location to host your fellow Elf lords."
+
+  moot_phase_welcome_ceremony:0 "Welcome Ceremony"
+  moot_phase_welcome_ceremony_desc:0 "As the great Elven Lords arrive they are announced and an exchanging of gifts commences"
+
+  moot_phase_aeluran_group_ritual:0 "Aeluran Group Ritual"
+  moot_phase_aeluran_group_ritual_desc:0 "The Aeluran Order shall lead a joint prayer to the Divine Spark. All Elves present shall link their Spark connections for this powerful ritual"
+
+  moot_phase_fae_ball:0 "Fae Ball"
+  moot_phase_fae_ball_desc:0 "A time for reveling in music, dance, and social gossip"
+
+  moot_phase_banquet:0 "Banquet"
+  moot_phase_banquet_desc:0 "A grand feast shall be held to spread unity and honor those in attendance"
+
+  moot_phase_petition_realm_lord:0 "Petition Realm Lord"
+  moot_phase_petition_realm_lord_desc:0 "The Realm Lord will hear the opinions of his fellow Elven Lords and make declaration to settle Elven disputes."
+
+  moot_phase_high_council:0 "High Council"
+  moot_phase_high_council_desc:0 "The Noblest Elven Lords present shall meet to settle global Elven affairs"
+
+
+

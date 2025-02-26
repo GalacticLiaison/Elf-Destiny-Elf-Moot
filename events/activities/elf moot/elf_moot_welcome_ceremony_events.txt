@@ -1,0 +1,196 @@
+﻿namespace = elf_moot_welcome_ceremony
+
+# An opening sequence describing the buzz around the opening day of the moot.
+elf_moot_welcome_ceremony.001 = {
+	type = activity_event
+	title = elf_moot_welcome_ceremony.001.title
+	desc = elf_moot_welcome_ceremony.001.desc
+
+	# theme = 
+	content_source = elf_destiny
+
+	left_portrait = {
+		trigger = { exists = scope:host }
+		character = scope:host
+		animation = toast_goblet
+	}
+
+	immediate = {
+		# Identify the Important dynasties that are attending
+		scope:activity = {
+			every_attending_character = {
+				if = {
+					limit = {
+						dynasty = {
+							NOT = {
+								is_in_list = attending_important_dynasties
+							}
+						}
+					}
+
+					debug_log = "CHECKING FOR DYNASTY"
+
+					# First check for all the bloodline Dynasties
+					if = {
+						limit = { dynasty = dynasty:696972 } # Serelion
+						dynasty = { add_to_list = attending_important_dynasties }
+						debug_log = "CHECKING FOR DYNASTY SEREL"
+
+					}
+					if = {
+						limit = { dynasty = dynasty:696970 } # Valerith
+						dynasty = { add_to_list = attending_important_dynasties }
+
+						debug_log = "CHECKING FOR DYNASTY VAELRITH"
+					}
+					if = {
+						limit = { dynasty = dynasty:696973 } # Gwynthorn
+						dynasty = { add_to_list = attending_important_dynasties }
+
+						debug_log = "CHECKING FOR DYNASTY GWYN"
+					}
+					if = {
+						limit = { dynasty = dynasty:696974 } # Thundarael
+						dynasty = { add_to_list = attending_important_dynasties }
+
+						debug_log = "CHECKING FOR DYNASTY THUND"
+					}
+					if = {
+						limit = { dynasty = dynasty:696971 } # Daelurin
+						dynasty = { add_to_list = attending_important_dynasties }
+
+						debug_log = "CHECKING FOR DYNASTY DAEL"
+					}
+
+					# Next check if non-bloodline elf dynasty is powerful enough to be noted
+					if = {
+						limit = {
+							highest_held_title_tier >= tier_kingdom
+						}
+
+						debug_log = "CHECKING FOR DYNASTY KING"
+
+						dynasty = { add_to_list = attending_important_dynasties }
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = elf_moot_welcome_ceremony.001.ok
+
+		trigger_event = elf_moot_welcome_ceremony.002
+	}
+}
+
+# In a great hall crowded with noisy elf chatter
+#     they go quiet as your herald loudly announces your first guest
+elf_moot_welcome_ceremony.002 = {
+	type = activity_event
+	title = elf_moot_welcome_ceremony.002.title
+	desc = elf_moot_welcome_ceremony.002.desc
+
+	# theme = 
+	content_source = elf_destiny
+
+	left_portrait = {
+		trigger = { exists = scope:rank_3_dynasty_member }
+		character = scope:rank_3_dynasty_member
+		animation = toast_goblet
+	}
+
+	center_portrait = {
+		# trigger = { exists = scope:rank_2_dynasty_member }
+		# character = scope:rank_2_dynasty_member
+		character = root
+		animation = toast_goblet
+	}
+
+	right_portrait = {
+		trigger = { exists = scope:rank_1_dynasty_member }
+		character = scope:rank_1_dynasty_member
+		animation = toast_goblet
+	}
+
+	widget = {
+		gui = "moot_gift_single"
+		container = "custom_widgets_container"
+	}
+
+	artifact = {
+		target = scope:newly_created_elf_artifact
+		position = lower_left_portrait
+		# trigger = {
+		# 	always = no
+		# }
+	}
+
+	immediate = {
+		# Select the most important members present
+		create_artifact = {	
+			name = artifact_elf_bow_name
+			description = artifact_elf_bow_description
+			# creator = scope:creator
+			visuals = bow
+			type = bow
+			modifier = elf_artifact_placeholder_modifier
+			wealth = scope:wealth
+			quality = scope:quality
+			save_scope_as = newly_created_elf_artifact
+		}
+
+		set_variable = {
+			name = gifted_artifact
+			value = scope:newly_created_elf_artifact
+		}
+
+
+		random_in_list = {
+			list = attending_important_dynasties
+
+			ordered_attending_character = {
+				limit = { dynasty = prev }
+				order_by = highest_held_title_tier
+				max = 3
+				check_range_bounds = no
+
+				if = {
+					limit = { NOT = { exists = scope:rank_1_dynasty_member } }
+					save_scope_as = rank_1_dynasty_member
+				}
+				else_if = {
+					limit = { NOT = { exists = scope:rank_2_dynasty_member } }
+					save_scope_as = rank_2_dynasty_member
+				}
+				else_if = {
+					limit = { NOT = { exists = scope:rank_3_dynasty_member } }
+					save_scope_as = rank_2_dynasty_member
+				}
+			}
+
+			remove_from_list = attending_important_dynasties
+		}
+	}
+
+	option = {
+		name = elf_moot_welcome_ceremony.002.ok
+
+		# repeat calling event till all guests announced
+		if = {
+			limit = {
+				any_in_list = {
+					list = attending_important_dynasties
+					count >= 1
+				}
+			}
+			trigger_event = elf_moot_welcome_ceremony.002
+		}
+	}
+}
+
+
+# We could create a new event widget to track the gifts given, either:
+# - during each iteration of announced
+# - in a final event at the end
+# - Both

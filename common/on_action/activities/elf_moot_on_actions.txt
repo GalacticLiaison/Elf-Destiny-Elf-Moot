@@ -1,0 +1,68 @@
+﻿elf_moot_opening_on_action = {
+	effect = {
+		involved_activity = {
+			every_attending_character = { trigger_event = elf_moot_general.001  }
+		}
+	}
+}
+
+
+elf_moot_welcome_ceremony_events = {
+	trigger = {
+
+	}
+
+	effect = {
+		trigger_event = elf_moot_welcome_ceremony.001
+	}
+}
+
+elf_moot_aeluran_group_ritual_events = {
+	trigger = {
+
+	}
+
+	effect = {
+		trigger_event = elf_moot_aeluran_group_ritual.001
+	}
+}
+
+elf_moot_banquet_events = {
+	trigger = {
+
+	}
+
+	effect = {
+		trigger_event = elf_moot_banquet.001
+	}
+}
+
+elf_moot_fae_ball_events = {
+	trigger = {
+
+	}
+
+	effect = {
+		trigger_event = elf_moot_fae_ball.001
+	}
+}
+
+elf_moot_high_council_events = {
+	trigger = {
+
+	}
+
+	effect = {
+		trigger_event = elf_moot_high_council.001
+	}
+}
+
+elf_moot_petition_realm_lord_events = {
+	trigger = {
+
+	}
+
+	effect = {
+		trigger_event = elf_moot_petition_realm_lord.001
+	}
+}
