@@ -22,3 +22,166 @@ elf_moot_general.001 = {
 		name = elf_moot_general.001.ok
 	}
 }
+
+elf_moot_general.002 { #gift choosing
+	type = activity_event
+	title = elf_moot_general.002
+	desc = elf_moot_general.002
+
+	theme = 
+	content_source = elf_destiny
+
+	immediate = { 
+
+	}
+
+	left_portrait = { 
+		character = root
+		animation = interested
+	}
+
+	option = {#small gift 
+		name = elf_moot_general.002.a
+		ai_chance = {
+			modifier = { has_trait = greedy factor = 5 }
+			modifier = { has_trait = generous factor = -5 }
+			modifier = { has_trait = compassionate factor = -3 }
+			modifier = { 
+				factor = 20
+				limit = { root = 
+					has_relation = { 
+						relation = rival
+						scope = host
+					}
+					has_relation = { 
+						relation = nemesis
+						scope = host
+					}
+				}
+			}
+			modifier = { 
+				factor = -20
+				limit = { root = 
+					has_relation = { 
+						relation = friend
+						scope = host
+					}
+					has_relation = { 
+						relation = best_friend
+						scope = host
+					}
+				}
+			}
+
+		}
+
+	}
+
+	option = {#medium gift
+		name = elf_moot_general.002.b
+		ai_chance = {
+			modifier = { has_trait = greedy factor = 3 }
+			modifier = { has_trait = generous factor = -3 }
+			modifier = { has_trait = compassionate factor = -1 }
+			modifier = { 
+				factor = 15
+				limit = { root = 
+					has_relation = { 
+						relation = rival
+						scope = host
+					}
+					has_relation = { 
+						relation = nemesis
+						scope = host
+					}
+				}
+			}
+			modifier = { 
+				factor = -15
+				limit = { root = 
+					has_relation = { 
+						relation = friend
+						scope = host
+					}
+					has_relation = { 
+						relation = best_friend
+						scope = host
+					}
+				}
+			}
+
+		}
+	}
+
+	option = {#big gift
+		name = elf_moot_general.002.c
+		ai_chance = {
+			modifier = { has_trait = greedy factor = -3 }
+			modifier = { has_trait = generous factor = 3 }
+			modifier = { has_trait = compassionate factor = 1 }
+			modifier = { 
+				factor = -10
+				limit = { root = 
+					has_relation = { 
+						relation = rival
+						scope = host
+					}
+					has_relation = { 
+						relation = nemesis
+						scope = host
+					}
+				}
+			}
+			modifier = { 
+				factor = 10
+				limit = { root = 
+					has_relation = { 
+						relation = friend
+						scope = host
+					}
+					has_relation = { 
+						relation = best_friend
+						scope = host
+					}
+				}
+			}
+
+		}
+	}
+
+	option = {#massive 
+		name = elf_moot_general.002.d
+		ai_chance = {
+			modifier = { has_trait = greedy factor = -5 }
+			modifier = { has_trait = generous factor = 5 }
+			modifier = { has_trait = compassionate factor = 3 }
+			modifier = { 
+				factor = -20
+				limit = { root = 
+					has_relation = { 
+						relation = rival
+						scope = host
+					}
+					has_relation = { 
+						relation = nemesis
+						scope = host
+					}
+				}
+			}
+			modifier = { 
+				factor = 20
+				limit = { root = 
+					has_relation = { 
+						relation = friend
+						scope = host
+					}
+					has_relation = { 
+						relation = best_friend
+						scope = host
+					}
+				}
+			}
+
+		}
+	}
+}
