@@ -74,9 +74,14 @@ elf_moot_general.002 { #gift choosing
 					}
 				}
 			}
+			
 
 		}
-
+		effect = {
+            root = {
+                remove_gold_short_term = small_gold_value
+            }
+		}
 	}
 
 	option = {#medium gift
@@ -113,7 +118,12 @@ elf_moot_general.002 { #gift choosing
 					}
 				}
 			}
-
+			
+		}
+		effect = {
+            root = {
+                remove_gold_short_term = medium_gold_value
+            }
 		}
 	}
 
@@ -153,6 +163,11 @@ elf_moot_general.002 { #gift choosing
 			}
 
 		}
+		effect = {
+            root = {
+                remove_gold_short_term = large_gold_value
+            }
+		}
 	}
 
 	option = {#massive 
@@ -190,6 +205,11 @@ elf_moot_general.002 { #gift choosing
 				}
 			}
 
+		}
+		effect = {
+            root = {
+                remove_gold_short_term = huge_gold_value
+            }
 		}
 	}
 }
